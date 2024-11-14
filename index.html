@@ -574,7 +574,6 @@
         .info-icon:hover + .info-tooltip {
             display: block;
         }
-
         footer {
     background-color: #4CAF50;
     color: white;
@@ -593,6 +592,46 @@
     }
 }
 
+/* Contenedor del chatbot */
+#chatbot-container {
+    position: relative;
+    width: 100%;
+    height: 700px;  /* Ajusta la altura según sea necesario */
+}
+
+/* Crear un bloque negro que cubra la parte inferior */
+#chatbot-overlay {
+    position: absolute;
+    bottom: 0;  /* Asegura que cubra la parte inferior */
+    left: 0;
+    width: 100%;
+    height: 30px; /* Ajusta la altura según lo que cubra */
+    background-color: black; /* Fondo negro */
+    z-index: 10;
+}
+
+/* Estilo opcional para el icono sobre el bloque negro */
+#chatbot-overlay i {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado */
+}
+
+/* Aseguramos que el footer se quede en su lugar al final */
+footer {
+    position: relative;
+    z-index: 1; /* Esto asegura que el footer se vea sobre el bloque negro */
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+    .cover-chatbase {
+        height: 20px; /* Ajustar altura si es necesario */
+    }
+}
 
     </style>
 </head>
@@ -802,13 +841,24 @@
         </div>
 
         
-        <iframe id="chatbot" src="https://www.chatbase.co/chatbot-iframe/ER9BDOiBNOnnS94a7uUCQ" width="100%" style="height: 100%; min-height: 700px; overflow: hidden;" frameborder="0"></iframe>
-
-        <footer>
-            <p>&copy; 2024 Proyecto de Desarrollo de proyectos computacionales. Todos los derechos reservados.</p>
-        </footer>
+        <!-- Contenedor del chatbot -->
+<div id="chatbot-container">
+    <iframe id="chatbot" src="https://www.chatbase.co/chatbot-iframe/ER9BDOiBNOnnS94a7uUCQ" width="100%" style="height: 100%; min-height: 700px; overflow: hidden;" frameborder="0"></iframe>
+    
+    <!-- Bloque negro que cubre la parte inferior -->
+    <div id="chatbot-overlay">
+        <!-- Puedes incluir un icono si lo deseas -->
+        <i class="fas fa-times"></i> <!-- Esto es solo un ejemplo de un icono -->
     </div>
+</div>
 
+<footer>
+    <p>&copy; 2024 Proyecto de Desarrollo de Proyectos Computacionales. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Bloque negro que cubre el texto de Chatbase -->
+<div class="cover-chatbase"></div>
+       
     <!-- Funcionalidad JavaScript -->
     <script>
         // Funcionalidad para abrir el modal
@@ -925,3 +975,31 @@
 
 </body>
 </html>
+           
+      
+        
+           
+       
+
+       
+        
+       
+       
+
+       
+           
+      
+            
+
+      
+      
+
+
+
+      
+
+   
+       
+
+        
+
